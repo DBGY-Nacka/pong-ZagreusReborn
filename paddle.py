@@ -4,32 +4,29 @@ class Paddle(Turtle):
     
     MOVE_DISTANCE = 10
     
-    def __init__(self, position):
-        id += 1
+    def __init__(self, name, position):
         super().__init__()
-        self.body = []
+        self.score = 0
+        self.name : str = name
+        self.shapesize(stretch_len = 3, stretch_wid = 0.5)
         self.position = position
-        self.initialize()
-    
-    def initialize(self):
-        y = 0
-        for _ in range(3):
-            self.add_part(y)
-            y -= 10
-    
-    def add_part(self, y):
-        temp_turtle = Turtle(shape = "square")
-        temp_turtle.color("white")
-        temp_turtle.penup()
-        temp_turtle.goto(self.position[0], self.position[1] - y)
-        self.body.append(temp_turtle)
+        self.shape("square")
+        self.penup()
+        self.setheading(90)
+        self.color("white")
+        self.goto(self.position[0], self.position[1])
         
-    def move(self, direction):
-        if direction == True:
+        
+    def move_up(self):
+        if self.ycor() < 280 or self.ycor() > -280:
+            pass
+        else:
             self.setheading(90)
-            for i in self.body:
-                i.forward(self.MOVE_DISTANCE)
+            self.forward(self.MOVE_DISTANCE)
+        
+    def move_down(self):
+        if self.ycor() < 280 or self.ycor() > -280:
+            pass
         else:
             self.setheading(270)
-            for i in self.body:
-                i.forward(self.MOVE_DISTANCE)
+            self.forward(self.MOVE_DISTANCE)

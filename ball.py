@@ -8,6 +8,7 @@ class Ball(Turtle):
         self.shape("circle")
         self.speed(10 + self.increase)
         self.penup()
+        self.shapesize(stretch_len = 0.5, stretch_wid = 0.5)
         self.color("white")
         self.start_direction = True
         self.start(True)
@@ -21,6 +22,7 @@ class Ball(Turtle):
         
     def start(self, direction):
         self.increase = 0
+        self.goto(0, 0)
         self.start_direction = direction
         if direction == True:
             self.setheading(45)
